@@ -1,0 +1,7 @@
+add_library(Common STATIC)
+
+file(GLOB_RECURSE COMMON_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
+file(GLOB_RECURSE COMMON_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cc)
+
+target_sources(Common PUBLIC ${COMMON_HEADERS} PRIVATE ${COMMON_SOURCES})
+target_link_libraries(Common PRIVATE mimalloc)

@@ -1,0 +1,22 @@
+{
+  "version": 9,
+  "configurePresets": [
+    {
+      "name": "OSX",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Darwin"
+      },
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/Build/OSX",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-I${sourceDir}/Sources -DDEBUG",
+        "CMAKE_CXX_FLAGS_RELEASE": "-Wall -Wextra -Werror -O3 -ffast-math -flto=full -fomit-frame-pointer -fstrict-vtable-pointers -fwhole-program-vtables -fno-exceptions -fno-rtti",
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION": "ON"
+      }
+    }
+  ]
+}
